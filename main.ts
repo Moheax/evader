@@ -19,7 +19,7 @@ function lives2 () {
         basic.showString(" Score:")
         basic.showNumber(score)
     } else {
-        speed += 50
+        speed += 100
         basic.showNumber(lives)
         basic.showIcon(IconNames.Heart)
         basic.pause(100)
