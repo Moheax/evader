@@ -32,15 +32,16 @@ function setastriod () {
 input.onButtonPressed(Button.B, function () {
     player.change(LedSpriteProperty.X, 1)
 })
-let score = 0
 let astroid: game.LedSprite = null
 let player: game.LedSprite = null
+let score = 0
 let gamestart = 0
 let lives = 0
 let speed = 0
 speed = 550
 lives = 3
 gamestart = 0
+score = 0
 lives2()
 basic.showLeds(`
     . . # . .
@@ -51,8 +52,8 @@ basic.showLeds(`
     `)
 basic.forever(function () {
     if (gamestart == 1) {
-        if (speed == 29) {
-            speed = 30
+        if (speed == 49) {
+            speed = 50
         }
         if (astroid.isTouching(player)) {
             lives += -1
@@ -64,9 +65,9 @@ basic.forever(function () {
             move_astroid()
         }
         if (speed > 300) {
-            speed += -10
-        } else if (speed > 150) {
             speed += -5
+        } else if (speed > 150) {
+            speed += -2
         } else if (speed > 75) {
             speed += -1
         }
