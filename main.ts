@@ -16,18 +16,23 @@ function move_astroid () {
 function lives2 () {
     if (lives == 0) {
         basic.showIcon(IconNames.Skull)
-        basic.showString("Score:")
+        basic.showString(" Score:")
         basic.showNumber(score)
-        game.pause()
     } else {
+        speed += 50
         basic.showNumber(lives)
         basic.showIcon(IconNames.Heart)
         basic.pause(100)
     }
 }
 function setastriod () {
-    astroid.set(LedSpriteProperty.X, randint(0, 4))
-    astroid.set(LedSpriteProperty.Y, 0)
+    if (speed < 150) {
+        astroid.set(LedSpriteProperty.X, randint(player.get(LedSpriteProperty.X) + 1, player.get(LedSpriteProperty.X) - 1))
+        astroid.set(LedSpriteProperty.Y, 0)
+    } else {
+        astroid.set(LedSpriteProperty.X, randint(0, 4))
+        astroid.set(LedSpriteProperty.Y, 0)
+    }
 }
 input.onButtonPressed(Button.B, function () {
     player.change(LedSpriteProperty.X, 1)
