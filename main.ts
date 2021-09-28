@@ -11,11 +11,14 @@ input.onButtonPressed(Button.A, function () {
 function move_astroid () {
     basic.pause(speed)
     astroid.move(1)
+    score += 1
 }
 function lives2 () {
     if (lives == 0) {
         basic.showIcon(IconNames.Skull)
-        game.gameOver()
+        basic.showString("Score:")
+        basic.showNumber(score)
+        game.pause()
     } else {
         basic.showNumber(lives)
         basic.showIcon(IconNames.Heart)
@@ -29,6 +32,7 @@ function setastriod () {
 input.onButtonPressed(Button.B, function () {
     player.change(LedSpriteProperty.X, 1)
 })
+let score = 0
 let astroid: game.LedSprite = null
 let player: game.LedSprite = null
 let gamestart = 0
